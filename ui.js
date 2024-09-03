@@ -46,4 +46,16 @@ export const displayResult = (data) => {
       result.innerHTML = `<h3>Please enter a valid country name.</h3>`;
     }
   };
-  
+  // utils.js
+
+// Function to display the fetched country data
+export const displayCountryData = (countryData) => {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+        <h2>${countryData.name.common}</h2>
+        <p>Capital: ${countryData.capital ? countryData.capital[0] : 'N/A'}</p>
+        <p>Population: ${countryData.population.toLocaleString()}</p>
+        <p>Region: ${countryData.region}</p>
+        <p>Flag: <img src="${countryData.flags.svg}" alt="Flag of ${countryData.name.common}" width="100"></p>
+    `;
+};
